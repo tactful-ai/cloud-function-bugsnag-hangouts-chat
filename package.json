@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "jbuilder":"latest",
-    "request":"latest"
+    "jbuilder": "latest",
+    "request": "latest",
+    "node-fetch": "latest"
   }
 }
