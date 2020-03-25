@@ -1,13 +1,10 @@
 exports.handler = async (event) => {
-  // TODO implement
   let body = JSON.parse(event.body);
   if (body.account.id === process.env.BUGSNAG_ACCOUNT_ID) {
-    console.log("INSIDE IF");
     const fetch = require('node-fetch');
     const jbuilder = require('jbuilder');
     var bugsnagError = body.error;
 
-    console.log(bugsnagError);
     var messageBody = jbuilder.encode(function (json) {
       json.set('cards', function (json) {
         json.child(function (json) {
@@ -53,13 +50,6 @@ exports.handler = async (event) => {
       });
     });
 
-    // messageBody = {
-    //   "text": "HI FROM LAMBDA"
-    // };
-
-    console.log("AFTER JSON");
-    console.log(messageBody);
-
     var options = {
       // url: process.env.GOOGLE_CHAT_URL,
       method: 'post',
@@ -68,9 +58,6 @@ exports.handler = async (event) => {
         'Content-Type': 'application/json'
       },
     };
-
-    console.log(options);
-
 
     return fetch(process.env.GOOGLE_CHAT_URL, options)
       .then(res => res.json())
