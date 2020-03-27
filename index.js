@@ -5,7 +5,6 @@ exports.handler = async (event) => {
     const jbuilder = require('jbuilder');
     var bugsnagError = body.error;
     var bugsnagProject = body.project;
-    var bugsnagRelease = body.release;
 
     var messageBody = jbuilder.encode(function (json) {
       json.set('cards', function (json) {
@@ -22,7 +21,7 @@ exports.handler = async (event) => {
                   json.set('keyValue', function(json) {
                     json.set('topLabel', 'Project Name');
                     json.set('content', bugsnagProject.name);
-                    json.set('bottomLabel', bugsnagRelease.releaseStage);
+                    json.set('bottomLabel', bugsnagError.releaseStage);
                   });
                   json.set('buttons', function (json) {
                     json.child(function (json) {
