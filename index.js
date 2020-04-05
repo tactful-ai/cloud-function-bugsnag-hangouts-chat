@@ -56,6 +56,9 @@ exports.handler = async (event) => {
       });
     });
 
+
+    console.log(`Message Body: ${messageBody}`);
+
     var options = {
       // url: process.env.GOOGLE_CHAT_URL,
       method: 'post',
