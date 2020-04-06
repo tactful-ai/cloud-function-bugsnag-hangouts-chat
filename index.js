@@ -58,13 +58,14 @@ exports.handler = async (event) => {
 
 
     console.log(`Message Body: ${messageBody}`);
+    console.log(`Message Body String: ${JSON.stringify(messageBody)}`)
 
     var options = {
       // url: process.env.GOOGLE_CHAT_URL,
-      method: 'post',
+      method: 'POST',
       body: messageBody,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json; charset=UTF-8'
       }
     };
 
