@@ -17,12 +17,14 @@ exports.handler = async (event) => {
           json.set('sections', function (json) {
             json.child(function (json) {
               json.set('widgets', function (json) {
-                json.child(function (json) {
+                json.child(function (json){
                   json.set('keyValue', function(json) {
                     json.set('topLabel', 'Project Name');
                     json.set('content', bugsnagProject.name);
                     json.set('bottomLabel', bugsnagError.releaseStage);
                   });
+                })
+                json.child(function (json) {
                   json.set('buttons', function (json) {
                     json.child(function (json) {
                       json.set('textButton', function (json) {
