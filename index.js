@@ -10,8 +10,8 @@ exports.handler = async (event) => {
       json.set('cards', function (json) {
         json.child(function (json) {
           json.set('header', function (json) {
-            json.set('title', `${bugsnagError.exceptionClass} in ${bugsnagError.context}`);
-            json.set('subtitle', bugsnagError.message);
+            json.set('title', `${bugsnagProject.name}`);
+            json.set('subtitle', `${bugsnagError.releaseStage}`);
           });
 
           json.set('sections', function (json) {
@@ -20,8 +20,8 @@ exports.handler = async (event) => {
                 json.child(function (json){
                   json.set('keyValue', function(json) {
                     json.set('topLabel', 'Project Name');
-                    json.set('content', bugsnagProject.name);
-                    json.set('bottomLabel', bugsnagError.releaseStage);
+                    json.set('content', `${bugsnagError.exceptionClass} in ${bugsnagError.context} and the error is ${bugsnagError.message}`);
+                    json.set('contentMultiline', true);
                   });
                 })
                 json.child(function (json) {
