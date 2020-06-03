@@ -1,7 +1,7 @@
 set -e
 set -x
 
-if [[ -e bugsnag_hangouts_function.zip ]]; then
+if [ -e bugsnag_hangouts_function.zip ]; then
     rm bugsnag_hangouts_function.zip
 fi
 
